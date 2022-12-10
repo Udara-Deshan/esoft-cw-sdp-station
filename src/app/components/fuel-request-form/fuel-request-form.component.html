@@ -1,0 +1,124 @@
+<div class="main-form">
+  <div class="main-card">
+    <div class="main-title">
+      <div class="main-title-bar">
+        <div class="left">
+          <span class="title">Quota Request{{formMode=='SAVE'?'':'Update'}}</span>
+          <!--          <span class="title">Request Token Update{{formMode=='SAVE'?'':'Update'}}</span>-->
+        </div>
+        <div class="mid"></div>
+        <div class="right">
+          <button color="primary" mat-button (click)="resetForm()">
+            <mat-icon>restart_alt</mat-icon>
+            Reset
+          </button>
+          <button color="primary" mat-button (click)="onSave()" *ngIf="formMode=='SAVE'">
+            <mat-icon>save</mat-icon>
+            Save
+          </button>
+          <button color="primary" mat-button (click)="onUpdate()" *ngIf="formMode=='UPDATE'">
+            <mat-icon>save</mat-icon>
+            Update
+          </button>
+          <button color="primary" mat-button (click)="onBack()">
+            <mat-icon>reply_all</mat-icon>
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="main-form-content">
+      <form [formGroup]="auditForm" (submit)="onSave()">
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <input matInput  formControlName="filling_time_and_date">
+            <mat-label>City</mat-label>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <input matInput  formControlName="request_quota">
+            <mat-label>District</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <input matInput  formControlName="status">
+            <mat-label>Station Name</mat-label>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput  formControlName="token_exp_date">
+            <mat-label>Available Limit</mat-label>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <input matInput  formControlName="pid_fk">
+            <mat-label>Max Limit</mat-label>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <input matInput  formControlName="username_fk">
+            <mat-label>Customer Requested Limit</mat-label>
+          </mat-form-field>
+
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <!--            <mat-select formControlName="vehicle_reg_no">-->
+            <!--              <mat-option [value]="">-->
+            <!--                Deselect-->
+            <!--              </mat-option>-->
+            <!--              <mat-option *ngFor="let option of filteredFuleStations" [value]="option">-->
+            <!--                {{option}}-->
+            <!--              </mat-option>-->
+            <!--            </mat-select>-->
+            <input matInput  formControlName="vehicle_reg_no">
+
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Station Requested Limit</mat-label>
+            <!--            <mat-select formControlName="vehicle_reg_no">-->
+            <!--              <mat-option [value]="">-->
+            <!--                Deselect-->
+            <!--              </mat-option>-->
+            <!--              <mat-option *ngFor="let option of filteredFuleStations" [value]="option">-->
+            <!--                {{option}}-->
+            <!--              </mat-option>-->
+            <!--            </mat-select>-->
+            <input matInput  formControlName="vehicle_reg_no">
+
+          </mat-form-field>
+
+          <!--         <div style="width: 45%"></div>-->
+
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>User Name</mat-label>
+            <!--            <mat-select formControlName="vehicle_reg_no">-->
+            <!--              <mat-option [value]="">-->
+            <!--                Deselect-->
+            <!--              </mat-option>-->
+            <!--              <mat-option *ngFor="let option of filteredFuleStations" [value]="option">-->
+            <!--                {{option}}-->
+            <!--              </mat-option>-->
+            <!--            </mat-select>-->
+            <input matInput  formControlName="vehicle_reg_no">
+
+          </mat-form-field>
+
+
+          <div style="width: 45%"></div>
+
+        </div>
+
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
