@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     });
   }
   loginUser():void{
-    this.router.navigateByUrl("/dashboard");
     if (this.loginDetailsForm.valid){
       this.apiResponse=true;
       this.authService.login(
@@ -38,9 +37,8 @@ export class LoginComponent implements OnInit {
         console.log('dd');
         console.log(res);
         this.apiResponse=false;
-        if (res.code=="00"){
+        if (res.code==201){
           this.router.navigateByUrl("/dashboard");
-
         }
       },error => {
         this.apiResponse=false;

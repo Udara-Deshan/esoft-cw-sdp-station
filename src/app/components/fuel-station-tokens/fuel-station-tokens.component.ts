@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FuelTokenService} from "../../services/fuel-token.service";
-import {ApprovalDialogConfig} from "../../dialogs/approval-dialog/ApprovalDialogConfig";
-import {ApprovalDialogComponent} from "../../dialogs/approval-dialog/approval-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {ApprovalDialogComponent} from "../../dialogs/approval-dialog/approval-dialog.component";
+import {ApprovalDialogConfig} from "../../dialogs/approval-dialog/ApprovalDialogConfig";
 import {QrDialogComponent} from "../qr-dialog/qr-dialog.component";
 
 @Component({
-  selector: 'app-customers-tokens',
-  templateUrl: './customers-tokens.component.html',
-  styleUrls: ['./customers-tokens.component.scss']
+  selector: 'app-fuel-station-tokens',
+  templateUrl: './fuel-station-tokens.component.html',
+  styleUrls: ['./fuel-station-tokens.component.scss']
 })
-export class CustomersTokensComponent implements OnInit {
+export class FuelStationTokensComponent implements OnInit {
 
   displayedColumn: string[] = ['action','tid',  'fillingTimeAnd',  'requestQuota',  'status' ,
     'tokenExp',  'vehicleRegNo',  'fuelStationFk' , 'pidFk' , 'usernameFk'];
@@ -18,10 +18,7 @@ export class CustomersTokensComponent implements OnInit {
     'tokenExp',  'vehicleRegNo',  'fuelStationFk' , 'pidFk' , 'usernameFk'];
   dataSource:any[] = [];
   constructor(private tokenService:FuelTokenService,
-              private matDialog:MatDialog,
-
-
-  ) { }
+              private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.tokenService.getAllTokenByFuelStationId().subscribe((res:any)=>{
@@ -31,25 +28,7 @@ export class CustomersTokensComponent implements OnInit {
         this.dataSource=res.data;
       }
     })
-
-    // this.dataSource=[
-    //   {
-    //     tid: 1,
-    //     filling_time_and_date :'2022-12 - 02',
-    //     request_quota :5,
-    //     status:'Accept',
-    //     token_exp_date :'2022-12 - 02',
-    //     vehicle_reg_no:6129,
-    //     fuel_station:1,
-    //     pid:3,
-    //     username:'udarasan'
-    //   }
-    // ]
-
-
-
   }
-
 
   onUpdate(element:any) {
   }
@@ -63,7 +42,6 @@ export class CustomersTokensComponent implements OnInit {
     );
   }
 
-
   onAction(element: any) {
     this.matDialog.open(QrDialogComponent, {
         width: '450px',
@@ -72,4 +50,5 @@ export class CustomersTokensComponent implements OnInit {
       }
     );
   }
+
 }

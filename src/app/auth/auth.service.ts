@@ -18,7 +18,7 @@ export class AuthService {
               private router: Router,
   ) {
     this.currentUserSubject = new BehaviorSubject<AuthUserDTO | null>
-    (JSON.parse(sessionStorage.getItem('currentUser') as string));
+    (JSON.parse(sessionStorage?.getItem('currentUser') as string));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -35,8 +35,8 @@ export class AuthService {
       username,
       password
     }).pipe(map((user:any) => {
-      this.currentUserSubject.next(user.content as AuthUserDTO);
-      sessionStorage.setItem('currentUser', JSON.stringify(user.content));
+      this.currentUserSubject.next(user?.data as AuthUserDTO);
+      sessionStorage.setItem('currentUser', JSON.stringify(user?.data));
       return user;
     }));
   }

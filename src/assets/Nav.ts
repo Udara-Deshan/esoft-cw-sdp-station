@@ -14,6 +14,12 @@ export const NavData=[
   {
     menuName: 'All Customers Tokens',
     url: '/dashboard/customers',
+    icon: 'person',
+    list: []
+  },
+  {
+    menuName: 'All Stations Tokens',
+    url: '/dashboard/tokens',
     icon: 'inventory',
     list: []
   },

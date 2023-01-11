@@ -34,6 +34,9 @@ import { FuelRequestFormComponent } from './components/fuel-request-form/fuel-re
 import { CustomersTokensComponent } from './components/customers-tokens/customers-tokens.component';
 import { StationFuelLevelComponent } from './components/station-fuel-level/station-fuel-level.component';
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { FuelStationTokensComponent } from './components/fuel-station-tokens/fuel-station-tokens.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,7 @@ import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
     CustomersTokensComponent,
     StationFuelLevelComponent,
     QrDialogComponent,
+    FuelStationTokensComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,9 @@ import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
     MatSelectModule,
     MatMenuModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   providers: [AuthGuard

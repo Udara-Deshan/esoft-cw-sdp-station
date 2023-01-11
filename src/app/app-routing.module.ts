@@ -6,6 +6,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {FuelRequestFormComponent} from "./components/fuel-request-form/fuel-request-form.component";
 import {CustomersTokensComponent} from "./components/customers-tokens/customers-tokens.component";
 import {StationFuelLevelComponent} from "./components/station-fuel-level/station-fuel-level.component";
+import {FuelStationTokensComponent} from "./components/fuel-station-tokens/fuel-station-tokens.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],children:[
       {path:'',component:StationFuelLevelComponent},
       {path:'fuel',component:FuelRequestFormComponent},
-      {path:'customers',component:CustomersTokensComponent}
+      {path:'customers',component:CustomersTokensComponent},
+      {path:'tokens',component:FuelStationTokensComponent}
     ]},
   {path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
