@@ -36,7 +36,6 @@ import { StationFuelLevelComponent } from './components/station-fuel-level/stati
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-import { FuelStationTokensComponent } from './components/fuel-station-tokens/fuel-station-tokens.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +50,7 @@ import { FuelStationTokensComponent } from './components/fuel-station-tokens/fue
     FuelRequestFormComponent,
     CustomersTokensComponent,
     StationFuelLevelComponent,
-    QrDialogComponent,
-    FuelStationTokensComponent,
+    QrDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -17,10 +17,10 @@ export const NavData=[
     icon: 'person',
     list: []
   },
-  {
-    menuName: 'All Stations Tokens',
-    url: '/dashboard/tokens',
-    icon: 'inventory',
-    list: []
-  },
+  // {
+  //   menuName: 'All Stations Tokens',
+  //   url: '/dashboard/tokens',
+  //   icon: 'inventory',
+  //   list: []
+  // },
 ];

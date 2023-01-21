@@ -4,6 +4,7 @@ import {ApprovalDialogConfig} from "../../dialogs/approval-dialog/ApprovalDialog
 import {ApprovalDialogComponent} from "../../dialogs/approval-dialog/approval-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {QrDialogComponent} from "../qr-dialog/qr-dialog.component";
+import {FuelStationService} from "../../services/fuel-station.service";
 
 @Component({
   selector: 'app-customers-tokens',
@@ -18,16 +19,13 @@ export class CustomersTokensComponent implements OnInit {
     'tokenExp',  'vehicleRegNo',  'fuelStationFk' , 'pidFk' , 'usernameFk'];
   dataSource:any[] = [];
   constructor(private tokenService:FuelTokenService,
-              private matDialog:MatDialog,
-
-
-  ) { }
+              private fuelStationService:FuelStationService,
+              private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.tokenService.getAllTokenByFuelStationId().subscribe((res:any)=>{
       console.log(res)
       if (res.code==201){
-
         this.dataSource=res.data;
       }
     })
@@ -65,11 +63,8 @@ export class CustomersTokensComponent implements OnInit {
 
 
   onAction(element: any) {
-    this.matDialog.open(QrDialogComponent, {
-        width: '450px',
-        // height: '200px',
-        data: null
-      }
-    );
+    this.tokenService.changeTokenStatus(element.tid,'FINISHED').subscribe((res:any)=>{
+
+    })
   }
 }
